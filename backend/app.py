@@ -1,9 +1,12 @@
 # Flask API (api.py)
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 import pandas as pd
 import joblib
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Load trained model
 model = joblib.load('nba_points_prediction_model.pkl')
@@ -24,6 +27,7 @@ common_players = players_2024.intersection(players_2023, players_2022)
 
 
 @app.route('/api/predict', methods=['POST'])
+@cross_origin()
 def predict():
     features  = request.json['features']
     
@@ -35,7 +39,7 @@ def predict():
     
     # Predict PTS for the 2024-2025 season
     predicted_pts = model.predict(data_2024_player)
-    return jsonify({'points_per_game_prediction': predicted_pts.tolist()[0]})
+    return jsonify({'ppgprediction': predicted_pts.tolist()[0]})
 
 if __name__ == '__main__':
     #app.run(debug=True)

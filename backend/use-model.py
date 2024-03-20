@@ -1,6 +1,5 @@
 # Import necessary libraries
 import pandas as pd
-from sklearn.linear_model import LinearRegression
 import joblib
 
 # Load the model (assuming you have already trained and saved the model)
