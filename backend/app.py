@@ -35,7 +35,7 @@ def predict():
     # Filter datasets to include only the player of interest
         data_2024_player = data_2024[data_2024['Player'] == features].drop(['Rk', 'Player', 'Pos', 'Tm', 'PTS'], axis=1)
     else:
-        return jsonify({'points_per_game_prediction': ("The player " + features + " is not present in all seasons or does not exist.")})
+        return jsonify({'ppgprediction': -1})
     
     # Predict PTS for the 2024-2025 season
     predicted_pts = model.predict(data_2024_player)
