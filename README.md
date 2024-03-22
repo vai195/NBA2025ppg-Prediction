@@ -1,4 +1,4 @@
-# NBA Player Points Per Game Prediction
+# NBA Player Points Per Game Prediction Model
 
 ## About
 
