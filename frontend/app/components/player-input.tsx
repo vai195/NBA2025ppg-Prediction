@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import React, { useState } from "react";
+import { Bounce, toast } from "react-toastify";
 
 const PlayerInputForm = () => {
     const [playerName, setPlayerName] = useState<string>("");
@@ -11,16 +12,55 @@ const PlayerInputForm = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://127.0.0.1:5000/api/predict",
+                process.env.NEXT_PUBLIC_RENDER_URL + "/api/predict",
                 {
                     features: playerName,
                 }
             );
+            if (response.data.ppgprediction == -1) {
+                toast.error("Incorrent Player Name Try Again!", {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                });
+            } else {
+                toast.success("PPG Predicted 🏀⛹️‍♂️", {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                });
+            }
 
             console.log(response.data);
             setPrediction(Math.round(response.data.ppgprediction));
         } catch (error) {
             console.log("Error fetching prediction:", error);
+            toast.error(
+                "Error fetching prediction wait for API to connect (2min-5mins Max)",
+                {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                }
+            );
         }
     };
     return (

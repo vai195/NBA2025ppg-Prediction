@@ -2,6 +2,8 @@ import Link from "next/link";
 import PlayerInputForm from "./components/player-input";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
     return (
@@ -13,6 +15,7 @@ export default function Home() {
                 Source Code
             </Link>
             <PlayerInputForm />
+            <ToastContainer />
         </main>
     );
 }
