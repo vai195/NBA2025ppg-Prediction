@@ -25,7 +25,7 @@ const PlayerInputForm = () => {
     };
     return (
         <div className='flex flex-col max-w-[18rem] items-center justify-center p-5 gap-4 bg-orange-400 rounded-md shadow-lg'>
-            <h1>NBA 2025 Player PPG Predictor</h1>
+            <h1>NBA 2025 Player Points Per Game (PPG) Predictor 🏀</h1>
             <p>
                 In this form type up your NBA player of choice who has played in
                 the past three seasons (2022-2022, 2022-2023, 2023-2024). Make
