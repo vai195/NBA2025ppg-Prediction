@@ -1,6 +1,6 @@
 # NBA Player Points Per Game Prediction Model
 
-## Visit the Deployed App Deployment
+## Visit the Deployed App 
 
 [Deployed PPG Predictor](https://nba2025ppg-predictior.vercel.app/)
 
