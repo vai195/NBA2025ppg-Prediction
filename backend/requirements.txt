@@ -1,3 +1,6 @@
 Flask
-flask_cors
+Flask-Cors
 Gunicorn
+pandas
+joblib
+scikit-learn
