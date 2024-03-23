@@ -4,6 +4,8 @@
 
 [Deployed PPG Predictor](https://nba2025ppg-predictior.vercel.app/)
 
+Please wait up to 5 minutes for the API to connect.
+
 ## About
 
 Created a prediction model to predict a players points per game
